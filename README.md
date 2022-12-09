@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+A: Closure is where we contain a function inside another function.  We can then use the variables from outside the inner function/closure inside it.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -81,9 +82,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? A: The closure is the unnamed function inside of the personalDice() function. I can tell because it can take in variables such as name from 'above'.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? A: What is always the same is the passed string 'Dan' in name. What can change is newRoll between 0-5
+c. What is the lexical scope of `newRoll`? A: `newRoll` has access to Math functions `Math.floor()` and `Math.random()` from outside of the function. The inner fucntion having access to variables from the outer function and in in global scope but not vice-versa is lexical scoping. 
 
 
 ### Task 3 - Stretch Goals

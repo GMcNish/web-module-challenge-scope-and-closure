@@ -30,7 +30,7 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  A: The counter1 returns a function where 'count' is within the function's scope. The counter2() is itself a function that increases the counter of global variable count.
+  A: The counter1 returns a function where another function is within the function's scope. The counter2() is itself a function that increases the counter of global variable count.
   2. Which of the two uses a closure? How can you tell?
   A: The counter1 code uses a clousure to enclose count within the scope of the counterMaker() function. The variable count is not enclosed in this manner in the counter2 code and is a global variable. 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
