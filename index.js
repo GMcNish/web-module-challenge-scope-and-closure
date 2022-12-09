@@ -30,11 +30,12 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  A: The counter1 returns a function where 'count' is within the function's scope. The counter2() is itself a function that increases the counter of global variable count.
   2. Which of the two uses a closure? How can you tell?
-  
+  A: The counter1 code uses a clousure to enclose count within the scope of the counterMaker() function. The variable count is not enclosed in this manner in the counter2 code and is a global variable. 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     A: If we had a function that counted Outs in a baseball game, the counter1 code would be preferable. Once the inning is over it could be reset, as Outs do not matter outside of a particular inning.  Conversely a function tracking the score of the baseball game would be better served by the counter2 code, because we need the score to be persistent. 
 */
 
 // counter1 code
@@ -64,8 +65,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * 3);
 }
 
 
@@ -83,10 +84,29 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(inning, num){
+  const score = {
+    Home: 0,
+    Away: 0, 
+  }
+  let i = 0
+  let outScope = {}
+while (i < num) {
+function playInning(){
+    let awayScore = inning();
+    let homeScore = inning();
+    let inningScore = {Home: homeScore,
+    Away: awayScore}
+    return inningScore;
+  }
+outScope = playInning();
+score.Home += outScope.Home;
+score.Away += outScope.Away;
+i++
 }
-
+return score;
+}
+console.log(finalScore(inning,9))
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -101,8 +121,14 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  {
+    let awayScore = inning();
+    let homeScore = inning();
+    let inningScore = {Home: homeScore,
+    Away: awayScore}
+    return inningScore;
+  }
 
 }
 
